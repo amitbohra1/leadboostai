@@ -28,6 +28,7 @@ import { EditOrganizationDialog } from "./modals/edit-dialog";
 import { toast } from "sonner";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/redux/store";
+import { useAppSelector } from "@/store/hooks";
 
 type Organization = {
   org_id: string;
@@ -46,7 +47,7 @@ export default function OrganizationList() {
   const [editName, setEditName] = useState("");
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [deletingOrg, setDeletingOrg] = useState<Organization | null>(null);
-  const features = useSelector((state: RootState) => state.feature.features);
+ const features = useAppSelector((state) => state.feature.features);
 
   const handleEdit = (org: Organization) => {
     setEditingOrg(org);

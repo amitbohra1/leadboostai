@@ -37,6 +37,7 @@ import { RoleApiResponse, roleList, useDeleteRole, useEditRole } from "./api";
 import { toast } from "sonner";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/redux/store";
+import { useAppSelector } from "@/store/hooks";
 
 type Role = {
   id: string;
@@ -60,7 +61,7 @@ export default function RolesList() {
   const { mutate: deleteRole, isPending: isDeleting } = useDeleteRole();
   const [selectedRoleForFeatures, setSelectedRoleForFeatures] =
     useState<Role | null>(null);
-  const features = useSelector((state: RootState) => state.feature.features);
+ const features = useAppSelector((state) => state.feature.features);
   const mapApiRolesToUi = (data: RoleApiResponse[]): Role[] => {
     return data.map((role) => ({
       id: role.role_id,

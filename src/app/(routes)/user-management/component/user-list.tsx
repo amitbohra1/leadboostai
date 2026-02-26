@@ -34,6 +34,7 @@ import {
 import { toast } from "sonner";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/redux/store";
+import { useAppSelector } from "@/store/hooks";
 
 type User = {
   id: number;
@@ -64,7 +65,7 @@ export default function UserList() {
   const { mutate: editUser, isPending: isUpdating } = useEditUser();
   const { data: roleData } = roleList();
   const { data: orgData } = useOrgList();
-  const features = useSelector((state: RootState) => state.feature.features);
+  const features = useAppSelector((state) => state.feature.features);
   const roles = Array.isArray(roleData)
     ? roleData.map((r: any) => ({
         id: r.role_id,

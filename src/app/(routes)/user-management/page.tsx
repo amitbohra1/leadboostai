@@ -16,6 +16,7 @@ import { useSelector } from "react-redux";
 import { toast } from "sonner";
 import { TabItem } from "@/interface/interface";
 import { RootState } from "@/store/redux/store";
+import { useAppSelector } from "@/store/hooks";
 
 const iconMap: Record<string, LucideIcon> = {
   Building2,
@@ -27,7 +28,7 @@ export default function UserManagement() {
   const [isOrgDialogOpen, setIsOrgDialogOpen] = useState(false);
   const [isRoleDialogOpen, setIsRoleDialogOpen] = useState(false);
   const [isUserDialogOpen, setIsUserDialogOpen] = useState(false);
-  const features = useSelector((state: RootState) => state.feature.features);
+  const features = useAppSelector((state) => state.feature.features);
   const { data, isLoading } = useTabsList();
   const tabsList = data?.response ?? [];
   const uamPermissions = useMemo(() => {
