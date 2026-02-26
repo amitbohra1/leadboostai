@@ -36,7 +36,7 @@ import { Feature } from "@/interface/interface";
 import { RoleApiResponse, roleList, useDeleteRole, useEditRole } from "./api";
 import { toast } from "sonner";
 import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { RootState } from "@/store/redux/store";
 
 type Role = {
   id: string;
