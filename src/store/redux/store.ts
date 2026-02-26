@@ -5,7 +5,6 @@ import themeReducer from "../slices/themeSlice"
 import uiReducer from "../slices/uiSlice"
 import filterReducer from "../slices/filterSlice"
 import leadPerformanceReducer from "../slices/leadPerformanceSlice"
-import inventoryReducer from "../slices/inventorySlice"
 import leadReducer from "../slices/leadSlice"
 import featureReducer from "../redux/featureSlice"
 
@@ -20,7 +19,6 @@ const rootReducer = combineReducers({
       ui: uiReducer,
       filter: filterReducer,
       leadPerformance: leadPerformanceReducer,
-      inventory: inventoryReducer,
       lead: leadReducer,   
       feature: featureReducer,
 });
