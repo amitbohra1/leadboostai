@@ -1,29 +1,33 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import themeReducer from "../slices/themeSlice"
-import uiReducer from "../slices/uiSlice"
-import filterReducer from "../slices/filterSlice"
-import leadPerformanceReducer from "../slices/leadPerformanceSlice"
-import leadReducer from "../slices/leadSlice"
-import featureReducer from "../redux/featureSlice"
+
+import themeReducer from "../slices/themeSlice";
+import uiReducer from "../slices/uiSlice";
+import filterReducer from "../slices/filterSlice";
+import leadPerformanceReducer from "../slices/leadPerformanceSlice";
+import leadReducer from "../slices/leadSlice";
+import featureReducer from "../redux/featureSlice";
+
+const rootReducer = combineReducers({
+  theme: themeReducer,
+  ui: uiReducer,
+  filter: filterReducer,
+  leadPerformance: leadPerformanceReducer,
+  lead: leadReducer,
+  feature: featureReducer,
+});
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [], 
+  whitelist: [],
 };
 
-const rootReducer = combineReducers({
-   theme: themeReducer,
-      ui: uiReducer,
-      filter: filterReducer,
-      leadPerformance: leadPerformanceReducer,
-      lead: leadReducer,   
-      feature: featureReducer,
-});
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer<ReturnType<typeof rootReducer>>(
+  persistConfig,
+  rootReducer
+);
 
 export const store = configureStore({
   reducer: persistedReducer,
