@@ -26,8 +26,6 @@ import { DeleteConfirmationDialog } from "./modals/delete-confirmation-dialog";
 import { useOrgList, useDeleteOrg, useEditOrg } from "./api";
 import { EditOrganizationDialog } from "./modals/edit-dialog";
 import { toast } from "sonner";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/redux/store";
 import { useAppSelector } from "@/store/hooks";
 
 type Organization = {
